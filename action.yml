@@ -22,7 +22,7 @@ runs:
   steps:
     - name: Docker Build
       run: |
-        docker build -t ${{ inputs.dockerfile_context }} -f ${{ inputs.dockerfile_context }} .
+        docker build -t ${{ env.DOCKER_IMAGE }} -f ${{ env.DOCKERFILE_CONTEXT }} .
       shell: bash
     - name: Download AccuKnox Vulnerability Scanner
       run: |
