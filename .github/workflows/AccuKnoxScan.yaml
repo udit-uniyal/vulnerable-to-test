@@ -12,9 +12,6 @@ jobs:
   accuknox-scan:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v1
-
       - name: Run AccuKnox CSPM Scan
         uses: udit-uniyal/AccuKnox-Vulnerability-Scan@v1
         with:
