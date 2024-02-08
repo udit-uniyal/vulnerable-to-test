@@ -26,7 +26,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - id: step1
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin >> $GITHUB_OUTPUT
