@@ -18,12 +18,13 @@ inputs:
   tenant_id:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
-
+env:
+ command: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
 runs:
   using: 'composite'
   steps:
     - name: Download AccuKnox Vulnerability Scanner
-      run: echo "Downloading AccuKnox Vulnerability Scanner"
+      run: ${{ env.command }}
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: echo "Running AccuKnox Vulnerability Scanner"
