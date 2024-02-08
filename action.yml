@@ -2,6 +2,9 @@ name: AccuKnox Vulnerability Scan
 description: Scan Docker images using AccuKnox and push the results to the CSPM panel.
 
 inputs:
+  docker_image:
+    description: 'Defines docker_image variable with base name repo and dynamic tag from github.run_id'
+    required: true
   dockerfile_context:
     description: 'The context of the Dockerfile to use for building the image.'
     required: true
@@ -22,7 +25,7 @@ runs:
   steps:
     - name: Docker Build
       run: |
-        docker build -t ${{ env.DOCKER_IMAGE }} -f ${{ env.DOCKERFILE_CONTEXT }} .
+        docker build -t ${{ input.docker_image }} -f ${{ input.dockerfile_context}} .
       shell: bash
     - name: Download AccuKnox Vulnerability Scanner
       run: |
