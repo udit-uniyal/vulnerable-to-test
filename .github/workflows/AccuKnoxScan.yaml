@@ -9,15 +9,15 @@ on:
       - main
 
 env: 
- docker_image: "udit-uniyal/vulnerable-to-test:${{ github.run_id }}"
- dockerfile_context: "Dockerfile"
+ DOCKER_IMAGE: "udit-uniyal/vulnerable-to-test:${{ github.run_id }}"
+ DOCKERFILE_CONTEXT: "Dockerfile"
 jobs:
   accuknox_scan:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Build
-        run: docker build -t ${{ env.docker_image }} -f ${{ env.dockerfile_context}} .
-        shell: bash
+        run: |
+          docker build -t ${{ env.DOCKER_IMAGE }} -f ${{ env.DOCKERFILE_CONTEXT }} .
       - name: Checkout code
         uses: actions/checkout@main  
       - name: Run AccuKnox CSPM Scan
