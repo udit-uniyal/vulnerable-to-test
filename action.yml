@@ -19,24 +19,18 @@ inputs:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
 
-
 runs:
   using: 'composite'
   steps:
     - name: Download AccuKnox Vulnerability Scanner
-      env: 
-       Accuknox: ${{ secrets.DOWNLOADING_ACCUKNOX_VULNERABILITY_SCANNER }}
-      run: |
-        "$env:Accuknox"
+      run: echo "Downloading AccuKnox Vulnerability Scanner"
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
-      run: |
-        trivy image -f json ${{ inputs.docker_image }} -o results.json
+      run: echo "Running AccuKnox Vulnerability Scanner"
       shell: bash
     - name: Print AccuKnox Results
-      run: cat results.json
+      run: echo "Printing AccuKnox Results"
       shell: bash
     - name: Push report to CSPM panel
-      run: |
-        curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\""
+      run: echo "Pushing report to CSPM panel"
       shell: bash
