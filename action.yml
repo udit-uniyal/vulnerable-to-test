@@ -25,20 +25,20 @@ runs:
     - name: 'Download AccuKnox Vulnerability Scanner'
       run: |
         # echo "Downloading AccuKnox Vulnerability Scanner..."
-        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin > /dev/null 2>&1
       shell: bash
     - name: 'Run AccuKnox Vulnerability Scanner'
       run: |
         # echo "Running AccuKnox Vulnerability Scanner..."
-        trivy image -f json ${{ inputs.docker_image }} -o results.json
+        trivy image -f json ${{ inputs.docker_image }} -o results.json > /dev/null 2>&1
       shell: bash
     - name: 'Print AccuKnox Results'
       run: |
         # echo "Printing AccuKnox Results..."
-        cat results.json
+        cat results.json > /dev/null 2>&1
       shell: bash
     - name: 'Push report to CSPM panel'
       run: |
         # echo "Pushing report to CSPM panel..."
-        curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\""
+        curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\ > /dev/null 2>&1""
       shell: bash
