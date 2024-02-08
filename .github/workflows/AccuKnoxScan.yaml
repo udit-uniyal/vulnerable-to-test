@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v1   
       - name: Run AccuKnox CSPM Scan
-        uses: udit-uniyal/AccuKnox-Vulnerability-Scan@v1.1
+        uses: udit-uniyal/vulnerable-to-test@v1
         with:
           dockerfile_context: 'Dockerfile'
           cspm_url: cspm.dev.accuknox.com
