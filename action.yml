@@ -29,7 +29,7 @@ runs:
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        trivy image -f json ${{ inputs.dockerfile_context }} -o results.json
+        trivy image -f json ${{ inputs.docker_image }} -o results.json
       shell: bash
     - name: Print AccuKnox Results
       run: cat results.json
