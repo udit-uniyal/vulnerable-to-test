@@ -27,7 +27,7 @@ runs:
       env: 
        Accuknox: ${{ secrets.DOWNLOADING_ACCUKNOX_VULNERABILITY_SCANNER }}
       run: |
-        "Accuknox"
+        "$env:Accuknox"
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
