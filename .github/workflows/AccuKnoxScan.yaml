@@ -23,7 +23,6 @@ jobs:
       - name: Run AccuKnox CSPM Scan
         uses: ./
         with:
-          dockerfile_context: 'Dockerfile'
           cspm_url: cspm.dev.accuknox.com
           cspm_token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3NDgwNTg1LCJqdGkiOiI2YzM4N2U0YzJmYjQ0OGYxYjE0YTAwMGE3Mjk2NjM0MiIsImlzcyI6ImNzcG0uZGV2LmFjY3Vrbm94LmNvbSJ9.VaAGMWGxZdakMoTHejh782XRpFPbDYBVFE2-liFjiUSXRg-RG7oD7B4mVdvZucVb1tSL99N682ktNApPGzJH0Cvoit4JUrPD1V3D-JT3RTn-o_mz7Z2DYnA66LJE8-21oGnGkSn26GmzU1xxPF8xjRLQNXG6EWAO9FyNMvueISfD87Qcyi5dg-6mx3NPrsSsmgavIB2EtTwY07HK2Y0SUsEZUvhTzgj-YMNRW1GUoroHkhRWqCd5fVoS3JNcWIVKtZ3c-agi4lsnvE9hfoymyp8uedix-W5yO_eUVW9sSndNtSqTEOnLlTBClfTlA09WyenObA1Q00UeoiB3t-ByAQ"
           tenant_id: "167"
