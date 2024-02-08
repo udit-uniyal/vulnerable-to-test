@@ -7,11 +7,17 @@ on:
   pull_request:
     branches:
       - main
-  
+
+env: 
+ docker_image: "udit-uniyal/vulnerable-to-test:${{ github.run_id }}"
+ dockerfile_context: "Dockerfile"
 jobs:
   accuknox_scan:
     runs-on: ubuntu-latest
     steps:
+      - name: Docker Build
+        run: docker build -t ${{ env.docker_image }} -f ${{ env.dockerfile_context}} .
+        shell: bash
       - name: Checkout code
         uses: actions/checkout@main  
       - name: Run AccuKnox CSPM Scan
