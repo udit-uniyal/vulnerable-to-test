@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main  
       - name: Run AccuKnox CSPM Scan
-        uses: actions/checkout@main/action.yml
+        uses: ./
         with:
           dockerfile_context: 'Dockerfile'
           cspm_url: cspm.dev.accuknox.com
