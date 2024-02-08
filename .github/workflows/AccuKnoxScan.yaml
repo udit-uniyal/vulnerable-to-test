@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  accuknox_scan:
+    runs-on: ubuntu-latest
     steps:
       - name: Run AccuKnox CSPM Scan
         uses: udit-uniyal/AccuKnox-Vulnerability-Scan@v1
