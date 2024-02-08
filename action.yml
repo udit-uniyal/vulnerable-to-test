@@ -22,22 +22,19 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Download AccuKnox Vulnerability Scanner
+    - name: 'Download AccuKnox Vulnerability Scanner'
       run: |
+        # echo "Downloading AccuKnox Vulnerability Scanner..."
         curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
-      shell: bash
-      echo: false
-    - name: Run AccuKnox Vulnerability Scanner
+    - name: 'Run AccuKnox Vulnerability Scanner'
       run: |
+        # echo "Running AccuKnox Vulnerability Scanner..."
         trivy image -f json ${{ inputs.docker_image }} -o results.json
-      shell: bash
-      echo: false
-    - name: Print AccuKnox Results
-      run: cat results.json
-      shell: bash
-      echo: false
-    - name: Push report to CSPM panel
+    - name: 'Print AccuKnox Results'
       run: |
+        # echo "Printing AccuKnox Results..."
+        cat results.json
+    - name: 'Push report to CSPM panel'
+      run: |
+        # echo "Pushing report to CSPM panel..."
         curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\""
-      shell: bash
-      echo: false
