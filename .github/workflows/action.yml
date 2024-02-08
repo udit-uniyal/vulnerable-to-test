@@ -1,0 +1,44 @@
+name: AccuKnox Vulnerability Scan
+description: Scan Docker images using AccuKnox and push the results to the CSPM panel.
+
+inputs:
+  docker_image:
+    description: 'Defines docker_image variable with base name repo and dynamic tag from github.run_id'
+    required: true
+  dockerfile_context:
+    description: 'The context of the Dockerfile to use for building the image.'
+    required: true
+    default: 'Dockerfile'
+  cspm_url:
+    description: 'The URL of the CSPM panel to push the scan results to.'
+    required: true
+  cspm_token:
+    description: 'The token for authenticating with the CSPM panel.'
+    required: true
+  tenant_id:
+    description: 'The ID of the tenant associated with the CSPM panel.'
+    required: true
+
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Docker Build
+      run: |
+        docker build -t ${{ input.docker_image }} -f ${{ input.dockerfile_context}} .
+      shell: bash
+    - name: Download AccuKnox Vulnerability Scanner
+      run: |
+        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
+      shell: bash
+    - name: Run AccuKnox Vulnerability Scanner
+      run: |
+        trivy image -f json ${{ inputs.dockerfile_context }} -o results.json
+      shell: bash
+    - name: Print AccuKnox Results
+      run: cat results.json
+      shell: bash
+    - name: Push report to CSPM panel
+      run: |
+        curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\""
+      shell: bash
