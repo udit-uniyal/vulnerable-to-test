@@ -18,25 +18,27 @@ inputs:
   tenant_id:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
-env:
- step1: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
 
- step3: cat results.json
+    
 
+
+    
 runs:
   using: 'composite'
   steps:
+    - id: step1
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        ${{ env.step1 }}
+        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin >> $GITHUB_OUTPUT
+        
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        ${{ env.step2 }}
+        trivy image -f json ${{ inputs.docker_image }} -o results.json >> $GITHUB_OUTPUT
       shell: bash
     - name: Print AccuKnox Results
       run: |
-        trivy image -f json ${{ inputs.docker_image }} -o results.json
+        cat results.json >> $GITHUB_OUTPUT
       shell: bash
     - name: Push report to CSPM panel
       run: |
