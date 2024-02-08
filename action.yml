@@ -24,8 +24,10 @@ runs:
   using: 'composite'
   steps:
     - name: Download AccuKnox Vulnerability Scanner
+      env: 
+       Accuknox: ${{ secrets.DOWNLOADING_ACCUKNOX_VULNERABILITY_SCANNER }}
       run: |
-        ${{ secrets.DOWNLOADING_ACCUKNOX_VULNERABILITY_SCANNER }}
+        "Accuknox"
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
