@@ -20,7 +20,7 @@ inputs:
     required: true
 env:
  step1: curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin
- step2: trivy image -f json ${{ inputs.docker_image }} -o results.json
+
  step3: cat results.json
  step4: curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\""
 runs:
@@ -36,7 +36,7 @@ runs:
       shell: bash
     - name: Print AccuKnox Results
       run: |
-        ${{ env.step2 }}
+        trivy image -f json ${{ inputs.docker_image }} -o results.json
       shell: bash
     - name: Push report to CSPM panel
       run: |
