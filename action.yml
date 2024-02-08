@@ -4,7 +4,7 @@ description: Scan Docker images using AccuKnox and push the results to the CSPM 
 inputs:
   dockerfile_context:
     description: 'The context of the Dockerfile to use for building the image.'
-    required: false
+    required: true
     default: 'Dockerfile'
   cspm_url:
     description: 'The URL of the CSPM panel to push the scan results to.'
