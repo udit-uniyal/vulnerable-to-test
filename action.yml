@@ -23,12 +23,16 @@ inputs:
 
 runs:
   using: 'composite'
+  outputs:
+    output1: ${{ steps.step1.outputs.test }}
   steps:
+    - id: step1
     - name: Download AccuKnox Vulnerability Scanner
       run: |
+        echo "test=Downloading" >> "$GITHUB_OUTPUT"
         curl -sfL $URL | sh -s -- -b /usr/local/bin
       env:
-        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh > /tmp/download_log.txt
+        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh 
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
