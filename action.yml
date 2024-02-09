@@ -1,15 +1,12 @@
 name: AccuKnox Vulnerability Scan
 description: Scan Docker images using AccuKnox and push the results to the CSPM panel.
 
-inputs:
-  URL:
-    default: "curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null"
-    description: 'URL to download accuknox vulnerability scanner'
-    required: true 
+
   ACCUKNOX:
     default: "trivy"
     description: 'Name of tool'
     required: true
+  inputs:
   docker_image:
     description: 'Defines docker_image variable with base name repo and dynamic tag from github.run_id'
     required: true
@@ -32,11 +29,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Download AccuKnox Vulnerability Scanner
-      run: |
-        varname = ${{ github.event.inputs.URL }}
-        curl -sfL $varname | sh -s -- -b /usr/local/bin > /dev/null
-      shell: bash
+
     - name: Run AccuKnox Vulnerability Scanner
       run: |
         ${{ github.event.inputs.ACCUKNOX }}" image -f json ${{ inputs.docker_image }} -o results.json --quiet 
