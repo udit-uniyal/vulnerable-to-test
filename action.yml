@@ -23,7 +23,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-      name: Download AccuKnox Vulnerability Scanner
+    - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $URL > /tmp/download_log.txt 2>&1 | sh -s -- -b /usr/local/bin
       env:
