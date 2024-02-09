@@ -26,7 +26,7 @@ runs:
   steps:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL ${URL} | sh -s -- -b /usr/local/bin > /dev/null
+        curl -sfL ${{ env.URL }} | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
@@ -36,5 +36,3 @@ runs:
       run: |
         curl --location --request POST "https://${{ inputs.cspm_url }}/api/v1/artifact/?tenant_id=${{ inputs.tenant_id }}&data_type=TR&save_to_s3=false" --header "Authorization: Bearer ${{ inputs.cspm_token }}" --form "file=@\"./results.json\""
       shell: bash
-  env:
-    URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
