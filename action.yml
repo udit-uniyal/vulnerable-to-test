@@ -32,7 +32,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-     - name: Download AccuKnox Vulnerability Scanner
+    - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL ${{ inputs.URL }} | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
