@@ -20,7 +20,7 @@ inputs:
     required: true
     
 env:
-  URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+  URL: 'https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh'
   
 runs:
   using: 'composite'
