@@ -18,13 +18,15 @@ inputs:
   tenant_id:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
-
+    
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.step1.outputs.test }}
  
 
 runs:
   using: 'composite'
-  outputs:
-    output1: ${{ steps.step1.outputs.test }}
   steps:
     - id: step1
     - name: Download AccuKnox Vulnerability Scanner
