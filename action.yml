@@ -29,14 +29,10 @@ runs:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL ${{ env.URL }} | sh -s -- -b /usr/local/bin > /dev/null
-      env:
-        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh 
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
         ${{ env.ACCUKNOX }} image -f json ${{ inputs.docker_image }} -o results.json --quiet                               
-      env:
-         ACCUKNOX: trivy
       shell: bash
     - name: Push report to CSPM panel
       run: |
