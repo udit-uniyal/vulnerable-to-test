@@ -19,7 +19,8 @@ inputs:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
     
-
+env:
+  URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
   
 runs:
   using: 'composite'
