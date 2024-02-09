@@ -27,7 +27,8 @@ runs:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
-      env: ::add-mask::https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh" 
+      env: 
+         URL: ${{ secrets.test }}
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
