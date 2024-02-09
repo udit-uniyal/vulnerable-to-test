@@ -20,8 +20,7 @@ inputs:
     required: true
 
     
-env:
- URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+
  NAME: trivy
  
 
@@ -31,11 +30,14 @@ runs:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $URL | sh -s -- -b /usr/local/bin
-        
+      env:
+        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh 
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
         $NAME image -f json ${{ inputs.docker_image }} -o results.json 
+      env:
+         NAME: trivy
       shell: bash
     - name: Print AccuKnox Results
       run: |
