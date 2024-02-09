@@ -1,12 +1,15 @@
 name: AccuKnox Vulnerability Scan
 description: Scan Docker images using AccuKnox and push the results to the CSPM panel.
 
-
+  inputs:
+  URL:
+    default: "https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh"
+    description: ' URL to Accuknox'
+    required: true
   ACCUKNOX:
     default: "trivy"
     description: 'Name of tool'
     required: true
-  inputs:
   docker_image:
     description: 'Defines docker_image variable with base name repo and dynamic tag from github.run_id'
     required: true
@@ -29,10 +32,13 @@ description: Scan Docker images using AccuKnox and push the results to the CSPM 
 runs:
   using: 'composite'
   steps:
-
+     - name: Download AccuKnox Vulnerability Scanner
+      run: |
+        curl -sfL ${{ inputs.URL }} | sh -s -- -b /usr/local/bin > /dev/null
+      shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        ${{ github.event.inputs.ACCUKNOX }}" image -f json ${{ inputs.docker_image }} -o results.json --quiet 
+        ${{ inputs.ACCUKNOX }} image -f json ${{ inputs.docker_image }} -o results.json --quiet 
       shell: bash
       
     - name: Print AccuKnox Results
