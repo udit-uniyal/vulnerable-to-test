@@ -19,9 +19,6 @@ inputs:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
 
-    
-
- NAME: trivy
  
 
 runs:
