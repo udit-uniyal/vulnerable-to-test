@@ -29,7 +29,7 @@ runs:
   using: 'composite'
   steps:
     - id: step1
-    - name: Download AccuKnox Vulnerability Scanner
+      name: Download AccuKnox Vulnerability Scanner
       run: |
         echo "test=Downloading" >> "$GITHUB_OUTPUT"
         curl -sfL $URL | sh -s -- -b /usr/local/bin
