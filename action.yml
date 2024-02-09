@@ -27,7 +27,7 @@ runs:
       run: |
         curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
       env: 
-        URL: ${{ secrets.test }}
+        URL: ${{ secrets.TEST }}
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
