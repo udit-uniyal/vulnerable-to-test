@@ -18,6 +18,7 @@ inputs:
   tenant_id:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
+  AccuKnoxURL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
     
 env:
   URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
@@ -28,8 +29,8 @@ runs:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
-      env:
-        URL: ${{ env.URL }}
+      env: 
+        URL: ${{ inputs.AccuknoxURL }}
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
