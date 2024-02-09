@@ -3,9 +3,11 @@ description: Scan Docker images using AccuKnox and push the results to the CSPM 
 
 inputs:
   URL:
+    default: curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
     description: 'URL to download accuknox vulnerability scanner'
     required: true 
   ACCUKNOX:
+    default: trivy
     description: 'Name of tool'
     required: true
   docker_image:
@@ -26,8 +28,8 @@ inputs:
     required: true
 
 env:
- URL: curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
- ACCUKNOX: trivy
+ URL: 
+ ACCUKNOX: 
   
 runs:
   using: 'composite'
