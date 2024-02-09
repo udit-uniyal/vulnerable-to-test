@@ -34,8 +34,8 @@ runs:
   steps:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        URL = "${{ github.event.inputs.URL }}"
-        curl -sfL URL | sh -s -- -b /usr/local/bin > /dev/null
+        varname = ${{ github.event.inputs.URL }}
+        curl -sfL $varname | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
