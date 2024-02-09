@@ -20,16 +20,16 @@ inputs:
     required: true
     
 env:
-  URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+  Accuknox: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
   
 runs:
   using: 'composite'
   steps:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL ${{ env.URL }} | sh -s -- -b /usr/local/bin > /dev/null
+        curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
       env: 
-        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+        URL: ${{ env.Accuknox }}
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
