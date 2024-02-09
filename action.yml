@@ -2,6 +2,12 @@ name: AccuKnox Vulnerability Scan
 description: Scan Docker images using AccuKnox and push the results to the CSPM panel.
 
 inputs:
+  URL:
+    description: 'URL to download accuknox vulnerability scanner'
+    required: true 
+  ACCUKNOX:
+    description: 'Name of tool'
+    required: true
   docker_image:
     description: 'Defines docker_image variable with base name repo and dynamic tag from github.run_id'
     required: true
@@ -18,23 +24,21 @@ inputs:
   tenant_id:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
+
+env:
+ URL: curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
+ ACCUKNOX: trivy
   
 runs:
   using: 'composite'
   steps:
-    - name: Mask URL
-      run: echo "::add-mask::${{ secrets.ACCUKNOX_URL }}"
-    - name:  URL
-      run: echo "${{ secrets.ACCUKNOX_URL }}" 
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL ${{ secrets.ACCUKNOX_URL }}| sh -s -- -b /usr/local/bin > /dev/null
+        curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
         "${ACCUKNOX}" image -f json ${{ inputs.docker_image }} -o results.json --quiet 
-      env: 
-        ACCUKNOX: trivy
       shell: bash
       
     - name: Print AccuKnox Results
