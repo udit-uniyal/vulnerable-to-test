@@ -28,17 +28,17 @@ runs:
       run: |
         curl -sfL $URL | sh -s -- -b /usr/local/bin
       env:
-        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh > /dev/null 2>&1
+        URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh > /tmp/download_log.txt
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        $ACCUKNOX image -f json ${{ inputs.docker_image }} -o results.json > /dev/null 2>&1
+        $ACCUKNOX image -f json ${{ inputs.docker_image }} -o results.json > /tmp/download_log.txt 2>&1
       env:
          ACCUKNOX: trivy
       shell: bash
     - name: Print AccuKnox Results
       run: |
-        cat results.json > /dev/null 2>&1
+        cat results.json > /tmp/download_log.txt 2>&1
       shell: bash
     - name: Push report to CSPM panel
       run: |
