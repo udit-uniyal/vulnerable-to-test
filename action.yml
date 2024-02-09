@@ -31,13 +31,9 @@ runs:
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        $ACCUKNOX image -f json ${{ inputs.docker_image }} -o results.json                                   
+        $ACCUKNOX image -f json ${{ inputs.docker_image }} -o results.json  > /dev/null                                  
       env:
          ACCUKNOX: trivy
-      shell: bash
-    - name: Print AccuKnox Results
-      run: |
-        cat results.json 
       shell: bash
     - name: Push report to CSPM panel
       run: |
