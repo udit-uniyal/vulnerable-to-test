@@ -26,7 +26,7 @@ runs:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $URL | sh -s -- -b /usr/local/bin > /dev/null
-      with:
+      env:
         URL: ${{secrets.DOWNLOADING_ACCUKNOX_VULNERABILITY_SCANNER}}
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
