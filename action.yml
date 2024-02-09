@@ -31,7 +31,7 @@ runs:
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        $ACCUKNOX > /dev/null image -f json ${{ inputs.docker_image }} -o results.json                                  
+        $ACCUKNOX image -f json ${{ inputs.docker_image }} -o results.json --quiet > /dev/null                                
       env:
          ACCUKNOX: trivy
       shell: bash
