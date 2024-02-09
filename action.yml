@@ -28,11 +28,11 @@ runs:
   steps:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL ${{ env.URL }} | sh -s -- -b /usr/local/bin > /dev/null
+        curl -sfL "${URL}" | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        ${{ env.ACCUKNOX }} image -f json ${{ inputs.docker_image }} -o results.json --quiet                               
+        "${ACCUKNOX}" image -f json ${{ inputs.docker_image }} -o results.json --quiet                               
       shell: bash
     - name: Push report to CSPM panel
       run: |
