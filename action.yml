@@ -20,24 +20,26 @@ inputs:
     required: true
 
     
+env:
+ URL: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+ NAME: trivy
+ 
 
-
-    
 runs:
   using: 'composite'
   steps:
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin >> $GITHUB_OUTPUT
+        curl -sfL $URL | sh -s -- -b /usr/local/bin
         
       shell: bash
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        trivy image -f json ${{ inputs.docker_image }} -o results.json >> $GITHUB_OUTPUT
+        $NAME image -f json ${{ inputs.docker_image }} -o results.json 
       shell: bash
     - name: Print AccuKnox Results
       run: |
-        cat results.json >> $GITHUB_OUTPUT
+        cat results.json 
       shell: bash
     - name: Push report to CSPM panel
       run: |
