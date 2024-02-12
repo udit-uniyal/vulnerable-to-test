@@ -2,9 +2,6 @@ name: AccuKnox Vulnerability Scan
 description: Scan Docker images using AccuKnox and push the results to the CSPM panel.
 
 inputs:
-  docker_image:
-    description: 'Defines docker_image variable with base name repo and dynamic tag from github.run_id'
-    required: true
   dockerfile_context:
     description: 'The context of the Dockerfile to use for building the image.'
     required: true
@@ -18,6 +15,14 @@ inputs:
   tenant_id:
     description: 'The ID of the tenant associated with the CSPM panel.'
     required: true
+  repository_name: 
+     description: 'Docker image repository name'
+     required: true
+  tag:
+     description: 'Add tag to the repository'
+     default: ${{ github.run_id }}
+     required: true
+  
 
 runs:
   using: 'composite'
@@ -31,7 +36,7 @@ runs:
       
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        $Scan image -f json ${{ inputs.docker_image }} -o results.json --quiet 
+        $Scan image -f json ${{ inputs.repsitory_name }}:${{ github.run_id }}  -o results.json --quiet 
       env:   
         Scan: trivy
       shell: bash
