@@ -36,7 +36,7 @@ runs:
       
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        $Scan image -f json ${{ inputs.repsitory_name }}:${{ inputs.tag }}  -o results.json --quiet 
+        $Scan image -f json ${{ github.events.inputs.repsitory_name }}:${{ github.events.inputs.tag }}  -o results.json --quiet 
       env:   
         Scan: trivy
       shell: bash
