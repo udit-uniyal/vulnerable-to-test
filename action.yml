@@ -31,10 +31,14 @@ inputs:
   
 runs:
   using: 'composite'
-  steps:        
+  steps: 
+    - name: Create secret environment variables from inputs 
+      run: |
+        AccuknoxURL= $(jq -r '.inputs.URL')
+      shell: bash
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL $( '.inputs.URL' )| sh -s -- -b /usr/local/bin > /dev/null
+        curl -sfL $AccuknoxURL| sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
       
     - name: Run AccuKnox Vulnerability Scanner
