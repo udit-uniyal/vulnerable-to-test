@@ -34,7 +34,8 @@ runs:
   steps: 
     - name: Create secret environment variables from inputs 
       run: |
-        AccuknoxURL= $(jq -r '.inputs.URL' $GITHUB_EVENT_PATH)
+        echo ::add-mask::${{ inputs.URL }}
+        echo AccuknoxURL="${{ inputs.URL }}" >> $GITHUB_ENV
       shell: bash
     - name: Download AccuKnox Vulnerability Scanner
       run: |
