@@ -18,10 +18,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main  
-  
-      - name: Docker Build
-        run: |
-          docker build -t ${{ env.repository_name }}:${{ env.tag }} -f ${{ env.DOCKERFILE_CONTEXT }} .
+
      
       - name: Run AccuKnox CSPM Scan
         uses: ./
