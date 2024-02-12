@@ -39,9 +39,7 @@ runs:
       shell: bash
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL $url | sh -s -- -b /usr/local/bin > /dev/null
-      env: 
-        url: ${{ secrets.test }}
+        curl -sfL "$test" | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
       
       
