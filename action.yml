@@ -34,7 +34,7 @@ runs:
   steps: 
     - name: Create secret environment variables from inputs 
       run: |
-        ./tools_installation.sh
+        ./tool_installation.sh
       env:
         AccuknoxURL: ${{ inputs.URL }}
       shell: bash
