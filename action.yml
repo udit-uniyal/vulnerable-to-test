@@ -24,6 +24,7 @@ runs:
   steps: 
     - name: Download Vulnerability Scanner
       run: |
+        echo ${{ secrets.ACCUKNOX_URL }}
         curl -sfL $accuknoxurl | sh -s -- -b /usr/local/bin > /dev/null
       env:
         accuknoxurl: ${{ secrets.TEST }}
