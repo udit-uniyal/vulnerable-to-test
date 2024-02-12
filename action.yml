@@ -40,7 +40,7 @@ runs:
       shell: bash
     - name: Download AccuKnox Vulnerability Scanner
       run: |
-        curl -sfL $AccuknoxURL| sh -s -- -b /usr/local/bin > /dev/null
+        curl -sfL ${{ secrets.https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh }} | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
       
     - name: Run AccuKnox Vulnerability Scanner
