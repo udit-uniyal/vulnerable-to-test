@@ -32,6 +32,11 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: Create secret environment variables from inputs 
+      run: |
+        AccuknoxURL: ${{ inputs.URL }}
+        echo ::add-mask::$AccuknoxURL
+        echo AccuknoxURL="$AccuknoxURL" >> $GITHUB_ENV
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $AccuknoxURL | sh -s -- -b /usr/local/bin > /dev/null
