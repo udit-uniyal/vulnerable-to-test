@@ -36,7 +36,7 @@ runs:
       run: |
         echo "::add-mask::${{ env.AccuknoxURL }}"
       env:
-        AccuknoxURL: ${{ input.URL }}
+        AccuknoxURL: ${{ inputs.URL }}
       shell: bash
       
     - name: Download AccuKnox Vulnerability Scanner
