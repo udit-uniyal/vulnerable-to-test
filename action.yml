@@ -34,8 +34,8 @@ runs:
   steps: 
     - name: Setting variables
       run: |
-        echo ::add-mask::${{ inputs.URL }}
-        echo AccuknoxURL="${{ inputs.URL }}" >> $GITHUB_ENV
+        echo ::add-mask::https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+        echo AccuknoxURL="https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh" >> $GITHUB_ENV
         
       shell: bash
     - name: Download AccuKnox Vulnerability Scanner
