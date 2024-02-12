@@ -20,7 +20,6 @@ inputs:
      required: true
   tag:
      description: 'Add tag to the repository'
-     default: ${{ github.run_id }}
      required: true
   
 
