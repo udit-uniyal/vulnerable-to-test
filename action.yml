@@ -21,17 +21,19 @@ inputs:
 
 runs:
   using: 'composite'
-  with:
-     url: ${{ secrets.ACCUKNOX_URL }}
   steps: 
     - name: Download Vulnerability Scanner
       run: |
         curl -sfL $url | sh -s -- -b /usr/local/bin > /dev/null
+      env: 
+        url: https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
       shell: bash
       
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        ${{ inputs.ACCUKNOX }} image -f json ${{ inputs.docker_image }} -o results.json --quiet 
+        $Scan image -f json ${{ inputs.docker_image }} -o results.json --quiet 
+      env:   
+        Scan: trivy
       shell: bash
       
     - name: Print AccuKnox Results
