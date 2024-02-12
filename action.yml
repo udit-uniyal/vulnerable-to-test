@@ -19,10 +19,10 @@ inputs:
      description: 'Docker image repository name'
      required: true
   tag:
-     description: 'Add tag to the repository'
+     description: 'Add version tag to the repository'
      required: true
   severity:
-     description: "Select Severity from UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+     description: "Select Severity from UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL if you want to scan for specific severity"
      required: false
   
 
