@@ -34,7 +34,7 @@ runs:
   steps:
     - name: Create secret environment variables from inputs 
       run: |
-        AccuknoxURL: ${{ inputs.URL }}
+        AccuknoxURL: ${ jq -r '.inputs.URL' }}
         echo ::add-mask::$AccuknoxURL
         echo AccuknoxURL="$AccuknoxURL" >> $GITHUB_ENV
       shell: bash
