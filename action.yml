@@ -21,6 +21,9 @@ inputs:
   tag:
      description: 'Add tag to the repository'
      required: true
+  severity:
+     description: "Select Severity from UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
+     required: false
   
 
 runs:
