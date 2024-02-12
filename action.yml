@@ -29,6 +29,8 @@ runs:
     - name: Docker Build
       run: |
         docker build -t ${{ inputs.repository_name }}:${{ inputs.tag }} -f ${{ inputs.DOCKERFILE_CONTEXT }} .
+      shell: bash
+      
     - name: Download Vulnerability Scanner
       run: |
         curl -sfL $url | sh -s -- -b /usr/local/bin > /dev/null
