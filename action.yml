@@ -37,12 +37,12 @@ runs:
         AccuknoxURL: ${{ inputs.URL }}
         echo ::add-mask::$AccuknoxURL
         echo AccuknoxURL="$AccuknoxURL" >> $GITHUB_ENV
+        
     - name: Download AccuKnox Vulnerability Scanner
       run: |
         curl -sfL $AccuknoxURL | sh -s -- -b /usr/local/bin > /dev/null
-      env:
-         AccuknoxURL: ${{ inputs.URL }}
       shell: bash
+      
     - name: Run AccuKnox Vulnerability Scanner
       run: |
         ${{ inputs.ACCUKNOX }} image -f json ${{ inputs.docker_image }} -o results.json --quiet 
