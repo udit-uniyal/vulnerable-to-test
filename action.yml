@@ -34,7 +34,7 @@ runs:
   steps: 
     - name: Setting variables
       run: |
-        echo ::add-mask::https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh
+        echo "::add-mask::https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh"
         echo AccuknoxURL="https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh" >> $GITHUB_ENV
         
       shell: bash
