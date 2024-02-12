@@ -21,13 +21,12 @@ inputs:
 
 runs:
   using: 'composite'
+  with:
+     url: ${{ secrets.ACCUKNOX_URL }}
   steps: 
     - name: Download Vulnerability Scanner
       run: |
-        echo ${{ secrets.ACCUKNOX_URL }}
-        curl -sfL $accuknoxurl | sh -s -- -b /usr/local/bin > /dev/null
-      env:
-        accuknoxurl: ${{ secrets.TEST }}
+        curl -sfL $url | sh -s -- -b /usr/local/bin > /dev/null
       shell: bash
       
     - name: Run AccuKnox Vulnerability Scanner
