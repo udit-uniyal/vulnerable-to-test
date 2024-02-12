@@ -28,6 +28,7 @@ jobs:
           tenant_id: "1069"
           repository_name: "udit-uniyal/vulnerable-to-test"
           tag: "v6"
+          severity: "HIGH"
           DOCKERFILE_CONTEXT: "Dockerfile"
           
          
