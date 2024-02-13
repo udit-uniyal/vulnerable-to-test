@@ -21,6 +21,6 @@ jobs:
           token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwMzg5NjU4LCJqdGkiOiIwMmZjMTBiZmQ3ZmU0NmY1OGEzZDdhODZlNDYzZmFlNiIsImlzcyI6ImNzcG0uZGV2LmFjY3Vrbm94LmNvbSJ9.FUEtjAo8itvgfFgYjfLYogDFZjWsE4yqYe1LmK6iJaGoDwAE9aLJ7mvoTuUOb8_9V-xxAM5rN-sSGWXzrUxzoehFgmA7pQ2MvJhZkvWZnHwFD3VWOGaSgG9wfZkoYtwAdRBgWfBFqZUK3wxddkexO4g6wJf47CVaneeWoPIina6wUU63Oziz8UQ59OfnrvovZq7OF3nM9ZujhuzEJU5-xGQ8QIEMBkCpkG74Mn9Pz5RAUPaU6MFOCc-JirrH_nQ_IUY4COj26-fjxi8-fc9pUiJjhE5vu2DKFkQcBMyL2gnfYb587pzJJV9mAg6tssHtXwuFgPhGfNowHqTWiesc5w"
           tenant_id: "1069"
           severity: "CRITICAL"
-          code: "1"
+          code: "0"
           repository_name: "udit-uniyal/vulnerable-to-test"
          
