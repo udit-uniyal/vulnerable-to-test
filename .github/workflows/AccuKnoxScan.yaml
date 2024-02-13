@@ -23,4 +23,5 @@ jobs:
           severity: "CRITICAL"
           code: "0"
           repository_name: "udit-uniyal/vulnerable-to-test"
+          endpoint: "cspm.dev.accuknox.com"
          
