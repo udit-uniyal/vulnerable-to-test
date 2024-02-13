@@ -54,7 +54,7 @@ runs:
         Scan: trivy
       shell: bash
       
-     - name: Run AccuKnox Vulnerability Scanner with specific tags
+    - name: Run AccuKnox Vulnerability Scanner with specific tags
       run: |
         $Scan image --exit-code ${{ inputs.code }} --severity ${{ inputs.severity }} -f json ${{ inputs.repository_name }}:${{ inputs.tag }} --quiet
       env:   
