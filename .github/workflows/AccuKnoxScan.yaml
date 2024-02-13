@@ -18,7 +18,7 @@ jobs:
       - name: Run AccuKnox CSPM Scan
         uses: ./
         with:
-          token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzA3NDgwNTg1LCJqdGkiOiI2YzM4N2U0YzJmYjQ0OGYxYjE0YTAwMGE3Mjk2NjM0MiIsImlzcyI6ImNzcG0uZGV2LmFjY3Vrbm94LmNvbSJ9.VaAGMWGxZdakMoTHejh782XRpFPbDYBVFE2-liFjiUSXRg-RG7oD7B4mVdvZucVb1tSL99N682ktNApPGzJH0Cvoit4JUrPD1V3D-JT3RTn-o_mz7Z2DYnA66LJE8-21oGnGkSn26GmzU1xxPF8xjRLQNXG6EWAO9FyNMvueISfD87Qcyi5dg-6mx3NPrsSsmgavIB2EtTwY07HK2Y0SUsEZUvhTzgj-YMNRW1GUoroHkhRWqCd5fVoS3JNcWIVKtZ3c-agi4lsnvE9hfoymyp8uedix-W5yO_eUVW9sSndNtSqTEOnLlTBClfTlA09WyenObA1Q00UeoiB3t-ByAQ"
+          token: "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzEwMzg5NjU4LCJqdGkiOiIwMmZjMTBiZmQ3ZmU0NmY1OGEzZDdhODZlNDYzZmFlNiIsImlzcyI6ImNzcG0uZGV2LmFjY3Vrbm94LmNvbSJ9.FUEtjAo8itvgfFgYjfLYogDFZjWsE4yqYe1LmK6iJaGoDwAE9aLJ7mvoTuUOb8_9V-xxAM5rN-sSGWXzrUxzoehFgmA7pQ2MvJhZkvWZnHwFD3VWOGaSgG9wfZkoYtwAdRBgWfBFqZUK3wxddkexO4g6wJf47CVaneeWoPIina6wUU63Oziz8UQ59OfnrvovZq7OF3nM9ZujhuzEJU5-xGQ8QIEMBkCpkG74Mn9Pz5RAUPaU6MFOCc-JirrH_nQ_IUY4COj26-fjxi8-fc9pUiJjhE5vu2DKFkQcBMyL2gnfYb587pzJJV9mAg6tssHtXwuFgPhGfNowHqTWiesc5w"
           tenant_id: "1069"
           repository_name: "udit-uniyal/vulnerable-to-test"
          
