@@ -9,7 +9,7 @@ inputs:
   endpoint:
     description: 'The URL of the CSPM panel to push the scan results to.'
     required: true
-    default: 'cspm.dev.accuknox.com'
+    default: 'cspm.demo.accuknox.com'
   token:
     description: 'The token for authenticating with the CSPM panel.'
     required: true
