@@ -52,6 +52,10 @@ runs:
         $Scan image -f json ${{ inputs.repository_name }}:${{ inputs.tag }}  -o results.json  --quiet 
       env:   
         Scan: trivy
+      shell: bash  
+      
+    - name: Print AccuKnox Results
+      run: cat results.json
       shell: bash
       
     - name: Run AccuKnox Vulnerability Scanner with specific tags
@@ -59,11 +63,7 @@ runs:
         $Scan image --exit-code ${{ inputs.code }} --severity ${{ inputs.severity }} ${{ inputs.repository_name }}:${{ inputs.tag }} --quiet >/dev/null
       env:   
         Scan: trivy
-      shell: bash     
-      
-    - name: Print AccuKnox Results
-      run: cat results.json
-      shell: bash
+      shell: bash   
       
     - name: Push report to CSPM panel
       run: |
