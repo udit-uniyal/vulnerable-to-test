@@ -23,6 +23,5 @@ jobs:
           repository_name: "udit-uniyal/vulnerable-to-test"
           endpoint: "cspm.dev.accuknox.com"
           severity: "HIGH"
-          code: "1"
 
          
