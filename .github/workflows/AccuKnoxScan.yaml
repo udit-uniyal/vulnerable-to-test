@@ -22,5 +22,5 @@ jobs:
           tenant_id: "1069"
           repository_name: "udit-uniyal/vulnerable-to-test"
           severity: "HIGH"
-          
+          tag: ${{ github.run_id }}
          
