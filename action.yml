@@ -49,14 +49,14 @@ runs:
       
     - name: Run AccuKnox Vulnerability Scanner
       run: |
-        $Scan image -f json ${{ inputs.repository_name }}:${{ inputs.tag }}  -o results.json  --quiet >/dev/null
+        $Scan image -f json ${{ inputs.repository_name }}:${{ inputs.tag }}  -o results.json  --quiet 
       env:   
         Scan: trivy
       shell: bash
       
     - name: Run AccuKnox Vulnerability Scanner with specific tags
       run: |
-        $Scan image --exit-code ${{ inputs.code }} --severity ${{ inputs.severity }} ${{ inputs.repository_name }}:${{ inputs.tag }} --quiet
+        $Scan image --exit-code ${{ inputs.code }} --severity ${{ inputs.severity }} ${{ inputs.repository_name }}:${{ inputs.tag }} --quiet >/dev/null
       env:   
         Scan: trivy
       shell: bash     
