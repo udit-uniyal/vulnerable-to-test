@@ -26,7 +26,7 @@ inputs:
   severity:
      description: "Allows selection of severity level for the scan. Options include UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL. If specified, the scan will target vulnerabilities of the selected severity level."
      required: false
-     default: 'UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL'
+     default: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL'
   
 
 runs:
