@@ -45,7 +45,7 @@ runs:
       env:
         DOCKERFILE_CONTEXT: ${{ inputs.dockerfile_context }}
         ENDPOINT: ${{ inputs.endpoint }}
-      #  TOKEN: ${{ inputs.token }}
+        TOKEN: ${{ inputs.token }}
         TENANT_ID: ${{ inputs.tenant_id }}
         REPOSITORY_NAME: ${{ inputs.repository_name }}
         TAG: ${{ inputs.tag }}
