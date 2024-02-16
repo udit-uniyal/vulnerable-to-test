@@ -14,10 +14,6 @@ def validate_inputs(inputs):
     if 'repository_name' not in inputs:
         errors.append("Repository name is required.")
 
-    # Check if tag is provided and if it matches the required format
-    if 'tag' in inputs and not inputs['tag'].startswith('v'):
-        errors.append("Tag should start with 'v'.")
-
     return errors
 
 def main():
