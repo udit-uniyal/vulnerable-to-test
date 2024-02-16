@@ -23,7 +23,7 @@ def main():
         'DOCKERFILE_CONTEXT': os.getenv('DOCKERFILE_CONTEXT', ''),
         'ENDPOINT': os.getenv('ENDPOINT', ''),
         'TOKEN': os.getenv('TOKEN', ''),
-        'TENANT_ID': os.getenv('TENANT_ID', ''),
+       # 'TENANT_ID': os.getenv('TENANT_ID', ''),
         'REPOSITORY_NAME': os.getenv('REPOSITORY_NAME', ''),
         'TAG': os.getenv('TAG', ''),
         'SEVERITY': os.getenv('SEVERITY', ''),
