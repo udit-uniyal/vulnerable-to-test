@@ -17,18 +17,18 @@ def validate_inputs(inputs):
 
     return errors
 
-# def main():
-#     # Read inputs from environment variables
-#     inputs = {
-#         'DOCKERFILE_CONTEXT': os.getenv('DOCKERFILE_CONTEXT', ''),
-#         'ENDPOINT': os.getenv('ENDPOINT', ''),
-#         'TOKEN': os.getenv('TOKEN', ''),
-#        # 'TENANT_ID': os.getenv('TENANT_ID', ''),
-#         'REPOSITORY_NAME': os.getenv('REPOSITORY_NAME', ''),
-#         'TAG': os.getenv('TAG', ''),
-#         'SEVERITY': os.getenv('SEVERITY', ''),
-#         'CODE': os.getenv('CODE', '')
-#     }
+def main():
+    # Read inputs from environment variables
+    inputs = {
+        'DOCKERFILE_CONTEXT': os.getenv('DOCKERFILE_CONTEXT', ''),
+        'ENDPOINT': os.getenv('ENDPOINT', ''),
+        'TOKEN': os.getenv('TOKEN', ''),
+       # 'TENANT_ID': os.getenv('TENANT_ID', ''),
+        'REPOSITORY_NAME': os.getenv('REPOSITORY_NAME', ''),
+        'TAG': os.getenv('TAG', ''),
+        'SEVERITY': os.getenv('SEVERITY', ''),
+        'CODE': os.getenv('CODE', '')
+    }
 
     # Validate inputs
     errors = validate_inputs(inputs)
@@ -43,5 +43,5 @@ def validate_inputs(inputs):
         print("Input validation passed.")
         sys.exit(0)
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
