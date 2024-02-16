@@ -43,5 +43,5 @@ def validate_inputs(inputs):
         print("Input validation passed.")
         sys.exit(0)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
