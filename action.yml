@@ -35,6 +35,10 @@ inputs:
 runs:
   using: 'composite'
   steps: 
+     - name: Docker Build
+       run: |
+        docker build -t ${{ inputs.repository_name }}:${{ inputs.tag }} -f ${{ inputs.DOCKERFILE_CONTEXT }} .
+       shell: bash  
      - name: Validate Inputs
        run: ./validate_inputs.py
        shell: bash
@@ -47,11 +51,6 @@ runs:
         TAG: ${{ inputs.tag }}
         SEVERITY: ${{ inputs.severity }}
         CODE: ${{ inputs.code }}
-          
-    - name: Docker Build
-      run: |
-        docker build -t ${{ inputs.repository_name }}:${{ inputs.tag }} -f ${{ inputs.DOCKERFILE_CONTEXT }} .
-      shell: bash
       
     - name: Download Vulnerability Scanner
       run: |
