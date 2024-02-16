@@ -5,14 +5,14 @@ import sys
 def validate_inputs(inputs):
     errors = []
 
-    # Check if token and tenant_id are provided
-    if 'TOKEN' not in inputs:
+    # Check if token and tenant_id are provided and not empty
+    if 'TOKEN' not in inputs or not inputs['TOKEN']:
         errors.append("Token is required.")
-    if 'TENANT_ID' not in inputs:
+    if 'TENANT_ID' not in inputs or not inputs['TENANT_ID']:
         errors.append("Tenant ID is required.")
 
-    # Check if repository_name is provided
-    if 'REPOSITORY_NAME' not in inputs:
+    # Check if repository_name is provided and not empty
+    if 'REPOSITORY_NAME' not in inputs or not inputs['REPOSITORY_NAME']:
         errors.append("Repository name is required.")
 
     return errors
