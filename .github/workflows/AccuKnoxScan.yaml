@@ -14,20 +14,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main  
-        
-      - name: Validate Inputs
-        run: ./validate_inputs.py
-        shell: bash
-        env:
-          DOCKERFILE_CONTEXT: ${{ inputs.dockerfile_context }}
-          ENDPOINT: ${{ inputs.endpoint }}
-          TOKEN: ${{ inputs.token }}
-          TENANT_ID: ${{ inputs.tenant_id }}
-          REPOSITORY_NAME: ${{ inputs.repository_name }}
-          TAG: ${{ inputs.tag }}
-          SEVERITY: ${{ inputs.severity }}
-          CODE: ${{ inputs.code }}
-          
+   
       - name: Run AccuKnox CSPM Scan
         uses: ./
         with:
