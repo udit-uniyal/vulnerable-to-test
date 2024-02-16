@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@main  
         
       - name: Validate Inputs
-        run: ./validate_inputs.sh
+        run: ./validate_inputs.py
         shell: bash
         env:
           DOCKERFILE_CONTEXT: ${{ inputs.dockerfile_context }}
