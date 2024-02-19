@@ -1,5 +1,5 @@
 # install-action
-
+.
 Github actions to install vulnerability scanner.
 
 ## Learn More
