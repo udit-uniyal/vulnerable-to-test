@@ -22,7 +22,7 @@ jobs:
           repository_name: "udit-uniyal/vulnerable-to-test"
           endpoint: "cspm.dev.accuknox.com"
           tenant_id: "1034"
-          severity: "HIGHj"
+          severity: "HIGH"
 
 
          
