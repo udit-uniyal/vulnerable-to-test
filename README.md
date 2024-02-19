@@ -1,5 +1,5 @@
 ## Simple Python Based app to display Universal Date and Time in Browser
-
+.
 ### Steps:
 1. Clone this repository with `git clone https://github.com/projectaccuknox/uni-date.git`
 2. Change working directory to cloned repository `cd uni-date`
