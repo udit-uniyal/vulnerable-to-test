@@ -7,7 +7,7 @@ dfdf
 - [About Accuknox](https://www.accuknox.com/)
 
 ## Inputs
-
+dfdf
 ```yaml
 inputs:
   dockerfile_context:
