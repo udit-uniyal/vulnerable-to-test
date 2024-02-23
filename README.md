@@ -1,6 +1,6 @@
 
 
-| Name                | Description                                                                                           | Optional/Required | Default Values             |
+| Input Values                | Description                                                                                           | Optional/Required | Default Values             |
 |---------------------|-------------------------------------------------------------------------------------------------------|-------------------|-----------------------------|
 | dockerfile_context  | The context of the Dockerfile to use for building the image.                                           | Optional          | Dockerfile                           |
 | endpoint            | The URL of the CSPM panel to push the scan results to.                                                 | Optional          | `cspm.demo.accuknox.com`   |
