@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@main  
+
+      - name: accuknox-report
+        uses: accuknox/report-action@v0.3.1
    
       - name: Run AccuKnox CSPM Scan
         uses: 'accuknox/container-scan-action@v0.0.1'
@@ -23,5 +26,4 @@ jobs:
           tenant_id: "1034"
           severity: "HIGH"
 
-
-         
+            
